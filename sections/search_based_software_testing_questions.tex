@@ -1,0 +1,24 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{Important Questions}
+  \framesubtitle{EvoSuite is an advanced, yet sometimes limited, testing tool}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[anchor=center] at (current page.center) {
+        \begin{beamercolorbox}[center]{title}
+          \vspace*{.4in}
+          \fontsize{30}{40}\selectfont
+          \begin{center}
+            \only<1>{\vspace*{.2in} Will EvoSuite's test cases find the fault in the example program?}
+            \only<2>{What is missing from the test cases that EvoSuite generates?}
+            \only<3>{\vspace*{.2in}How does the {\em oracle problem} influence the effectiveness of EvoSuite?}
+            \only<4>{\vspace*{.2in}What are the {\em fundamental} limitations of automated testing?}
+          \end{center}
+          \normalsize
+      \end{beamercolorbox}};
+  \end{tikzpicture}
+
+\end{frame}

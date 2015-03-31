@@ -1,0 +1,146 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: kapfhammer_gcc_presentation.tex
+
+\begin{frame}
+  \frametitle{Software is Everywhere}
+  \framesubtitle{Software is pervasive --- and so it must be thoroughly tested!}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=1cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,3.5) rectangle (10,-2);
+
+        %%%%% 1
+
+        % Computer Server
+        \path[->]<1-> node[proc, text width=14ex]
+        (Server) at (4,1.5) {Computer Server};
+
+        % Program
+        \path[->]<1-> node[prochighlight, above of=Server,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFirst) {Program};
+
+        %%%%% 2
+
+        % Computer Server
+        \path[->]<2-> node[procold, text width=14ex]
+        (Server) at (4,1.5) {Computer Server};
+
+        % Program
+        \path[->]<2-> node[prochighlightold, above of=Server,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFirst) {Program};
+
+        % Desktop Computer
+        \path[->]<2-> node[proc, text width=14ex]
+        (Desktop) at (.25,1.5) {Desktop Computer};
+
+        % Program
+        \path[->]<2-> node[prochighlight, above of=Desktop,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramSecond) {Program};
+
+        %%%%% 3
+
+        % Desktop Computer
+        \path[->]<3-> node[procold, text width=14ex]
+        (Desktop) at (.25,1.5) {Desktop Computer};
+
+        % Program
+        \path[->]<3-> node[prochighlightold, above of=Desktop,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramSecond) {Program};
+
+        % Mobile Device
+        \path[->]<3-> node[proc, text width=14ex]
+        (Mobile) at (7.75,1.5) {Mobile Computer};
+
+        % Program
+        \path[->]<3-> node[prochighlight, above of=Mobile,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramThird) {Program};
+
+        %%%%% 4
+
+        % Mobile Device
+        \path[->]<4-> node[procold, text width=14ex]
+        (Mobile) at (7.75,1.5) {Mobile Computer};
+
+        % Program
+        \path[->]<4-> node[prochighlightold, above of=Mobile,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramThird) {Program};
+
+        % Desktop Computer
+        \path[->]<4-> node[proc, text width=14ex]
+        (Appliance) at (4,-1.75) {Household Appliance};
+
+        % Program
+        \path[->]<4-> node[prochighlight, above of=Appliance,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFourth) {Program};
+
+        %%%%% 5
+
+        % Scientific Device
+        \path[->]<5-> node[proc, text width=14ex]
+        (Device) at (.25,-1.75) {Scientific Device};
+
+        % Program
+        \path[->]<5-> node[prochighlight, above of=Device,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFifth) {Program};
+
+        % Household Appliance
+        \path[->]<5-> node[procold, text width=14ex]
+        (Appliance) at (4,-1.75) {Household Appliance};
+
+        % Program
+        \path[->]<5-> node[prochighlightold, above of=Appliance,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFourth) {Program};
+
+        %%%%% 6
+
+        % Network Router
+        \path[->]<6-> node[proc, text width=14ex]
+        (Router) at (7.75,-1.75) {Network \\ Router};
+
+        % Program
+        \path[->]<6-> node[prochighlight, above of=Router,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramSixth) {Program};
+
+        % Scientific Device
+        \path[->]<6-> node[procold, text width=14ex]
+        (Device) at (.25,-1.75) {Scientific Device};
+
+        % Program
+        \path[->]<6-> node[prochighlightold, above of=Device,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramFifth) {Program};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+\end{frame}

@@ -1,0 +1,28 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{Search-Based Testing}
+  \framesubtitle{Use a fitness function to guide the search to ``good'' values}
+
+  \vspace*{.25in}
+  \hspace{.25in}
+  \resizebox{3.5in}{!}{
+    \begin{tikzpicture}
+      \begin{axis}[
+          domain=0:1,
+          xmax=1,
+          ymax=1,
+        ]
+        \addplot3[surf] {x*y};
+        \addplot3[solarizedRebase0,/pgfplots/quiver,
+            quiver/u=y,
+            quiver/v=x,
+            quiver/w=0,
+            quiver/scale arrows=0.1,
+          -stealth,samples=10] {1};
+      \end{axis}
+  \end{tikzpicture}}
+
+\end{frame}

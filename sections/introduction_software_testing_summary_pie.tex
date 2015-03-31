@@ -1,0 +1,30 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{Test Suite Summary}
+  \framesubtitle{A test case must create specific inputs in order to cause failure!}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[anchor=center] at (current page.center) {
+        \begin{beamercolorbox}[center]{title}
+          \vspace*{.2in}
+          \fontsize{30}{40}\selectfont
+          \begin{center}
+
+            \begin{tabular}{c c}
+            \begin{minipage}{2in}{\color{solarizedRebase01}Test Case}\end{minipage} & 
+            \begin{minipage}{2in}\begin{center}{\color{solarizedRebase01}Status}\end{center}\end{minipage} \\
+              $T_1$ & {\color{solarizedYellow}Pass} \\
+              $T_2$ & {\color{solarizedYellow}Pass} \\
+              $T_3$ & {\color{solarizedYellow}Pass} \\
+              $T_4$ & {\color{solarizedViolet}Fail} \\
+            \end{tabular}
+
+          \end{center}
+          \normalsize
+      \end{beamercolorbox}};
+  \end{tikzpicture}
+
+\end{frame}

@@ -1,0 +1,281 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{Mutation Testing}
+  \framesubtitle{Let's purposefully insert faults into the program under test!}
+
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+      \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=1cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,4.35) rectangle (10,-2);
+
+%% 10 test cases, 12 requirements
+%% Test case timings (used by Greedy): 5,6,4,2,8,10,4,1,3,2
+%% Covers relationships:
+%%   T1 = {R1,R2,R3}
+%%   T2 = {R2,R3,R4}
+%%   T3 = {R1,R5}
+%%   T4 = {R4,R6}
+%%   T5 = {R5,R6,R7}
+%%   T6 = {R6,R7,R8,R9}
+%%   T7 = {R7,R8}
+%%   T8 = {R8,R10}
+%%   T9 = {R9,R12}
+%%   T10 = {R10,R11}
+
+        %%%%% 1
+
+        % A Test Case
+        \path[->]<1-> node[proc, text width=3ex]
+        (One) at (-1.65,2.00) {$T_1$};
+
+        % A Test Case
+        \path[->]<1-> node[proc, right of=One,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Two) {$T_2$};
+
+        % A Test Case
+        \path[->]<2-> node[proc, right of=Two,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Three) {$T_3$};
+
+        % A Test Case
+        \path[->]<2-> node[proc, right of=Three,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Four) {$T_4$};
+
+        % A Test Case
+        \path[->]<3-> node[proc, right of=Four,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Five) {$T_5$};
+
+        % A Test Case
+        \path[->]<3-> node[proc, right of=Five,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Six) {$T_6$};
+
+        % A Test Case
+        \path[->]<4-> node[proc, right of=Six,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Seven) {$T_7$};
+
+        % A Test Case
+        \path[->]<4-> node[proc, right of=Seven,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Eight) {$T_8$};
+
+        % A Test Case
+        \path[->]<5-> node[proc, right of=Eight,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Nine) {$T_9$};
+
+        % A Test Case
+        \path[->]<5-> node[proc, right of=Nine,
+                      yshift=0in, xshift=.1in, text width=3ex]
+                      (Ten) {$T_{10}$};
+
+        % Show the test suite
+        \path[->]<6-> node[special, above of=Five,
+                      yshift=.1in, xshift=.25in]
+                      (TestSuite)
+              {Test Suite $T = \langle T_1, T_2, \ldots, T_9, T_{10} \rangle$};
+
+%% 10 test cases, 12 requirements
+%% Test case timings (used by Greedy): 5,6,4,2,8,10,4,1,3,2
+%% Covers relationships:
+%%   T1 = {R1,R2,R3}
+%%   T2 = {R2,R3,R4}
+%%   T3 = {R1,R5}
+%%   T4 = {R4,R6}
+%%   T5 = {R5,R6,R7}
+%%   T6 = {R6,R7,R8,R9}
+%%   T7 = {R7,R8}
+%%   T8 = {R8,R10}
+%%   T9 = {R9,R12}
+%%   T10 = {R10,R11}
+
+        %%%%% 2
+
+        \path[->]<7-> node[prochighlight, text width=3ex]
+        (OneR) at (-1.825,-1.00) {$M_1$};
+
+        \path[->]<7-> node[prochighlight, right of=OneR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwoR) {$M_2$};
+
+        \path[->]<8-> node[prochighlight, right of=TwoR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (ThreeR) {$M_3$};
+
+        \path[->]<8-> node[prochighlight, right of=ThreeR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (FourR) {$M_4$};
+
+        \path[->]<9-> node[prochighlight, right of=FourR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (FiveR) {$M_5$};
+
+        \path[->]<9-> node[prochighlight, right of=FiveR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (SixR) {$M_6$};
+
+        \path[->]<10-> node[prochighlight, right of=SixR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (SevenR) {$M_7$};
+
+        \path[->]<10-> node[prochighlight, right of=SevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (EightR) {$M_8$};
+
+        \path[->]<11-> node[prochighlight, right of=EightR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (NineR) {$M_9$};
+
+        \path[->]<11-> node[prochighlight, right of=NineR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TenR) {$M_{10}$};
+
+        \path[->]<12-> node[prochighlight, right of=TenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (ElevenR) {$M_{11}$};
+
+        \path[->]<12-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$};
+
+%% 10 test cases, 12 requirements
+%% Test case timings (used by Greedy): 5,6,4,2,8,10,4,1,3,2
+%% Covers relationships:
+%%   T1 = {R1,R2,R3}
+%%   T2 = {R2,R3,R4}
+%%   T3 = {R1,R5}
+%%   T4 = {R4,R6}
+%%   T5 = {R5,R6,R7}
+%%   T6 = {R6,R7,R8,R9}
+%%   T7 = {R7,R8}
+%%   T8 = {R8,R10}
+%%   T9 = {R9,R12}
+%%   T10 = {R10,R11}
+
+        %%%%% 3
+
+        % Show the set of requirements
+        \path[->]<13-> node[special, below of=SixR,
+                      yshift=-.1in, xshift=.25in]
+                      (Requirements)
+              {Set of Program Methods $M = \{ M_1, M_2, \ldots, M_{11}, M_{12} \}$};
+
+        %%%%% 4
+
+        \path[->]<14-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (One) edge node {} (OneR)
+        (One) edge node {} (TwoR)
+        (One) edge node {} (FourR);
+
+        \path[->]<14-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Two) edge node {} (TwoR)
+        (Two) edge node {} (ThreeR)
+        (Two) edge node {} (FourR);
+
+        \path[->]<14-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Three) edge node {} (OneR)
+        (Three) edge node {} (FiveR);
+
+        \path[->]<14-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Four) edge node {} (FourR)
+        (Four) edge node {} (SixR);
+
+        \path[->]<15-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Five) edge node {} (FiveR)
+        (Five) edge node {} (SixR)
+        (Five) edge node {} (SevenR);
+
+        \path[->]<15-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Six) edge node {} (SixR)
+        (Six) edge node {} (SevenR)
+        (Six) edge node {} (EightR)
+        (Six) edge node {} (NineR);
+
+        \path[->]<16-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Seven) edge node {} (SevenR)
+        (Seven) edge node {} (EightR);
+
+        \path[->]<16-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Eight) edge node {} (EightR)
+        (Eight) edge node {} (TenR);
+
+        \path[->]<16-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Nine) edge node {} (NineR)
+        (Nine) edge node {} (TwelveR);
+
+        \path[->]<16-> node[prochighlight, right of=ElevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (TwelveR) {$M_{12}$}
+        (Ten) edge node {} (TenR)
+        (Ten) edge node {} (ElevenR);
+
+        % FINAL PART WHERE WE EITHER FIND OR DO NOT FIND THE FAULT
+
+        \path[->]<17-18> node[procyellow, right of=ThreeR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (FourR) {$M_4$};
+
+        % A Test Case
+        \path[->]<18-18> node[procred, text width=3ex]
+        (One) at (-1.65,2.00) {$T_1$};
+
+        \path[->]<19-> node[prochighlight, right of=ThreeR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (FourR) {$M_4$};
+
+        % A Test Case
+        \path[->]<19-> node[proc, text width=3ex]
+        (One) at (-1.65,2.00) {$T_1$};
+
+        \path[->]<20-> node[procyellow, right of=SevenR,
+                      yshift=0in, xshift=.02in, text width=3ex]
+                      (EightR) {$M_8$};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+\end{frame}

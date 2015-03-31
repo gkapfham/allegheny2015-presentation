@@ -1,0 +1,72 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+  \frametitle{Testing with EvoSuite}
+  \framesubtitle{This prototype can automatically generate real JUnit test suites!}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=0cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,4.5) rectangle (10,-2);
+
+        % Computer Software
+        \path[->]<1-> node[proc, text width=14ex]
+        (Software) at (4,.8) {Evolutionary Testing};
+
+        % Code
+        \path[->]<2-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=-1.75in, text width=14ex]
+                      (Code) {Representation}
+        (Software) edge node {} (Code);
+
+        % Features
+        \path[->]<3-> node[proc, below of=Software,
+                      yshift=-1in, xshift=-.75in, text width=12ex]
+                      (Features) {Fitness \\ Function}
+        (Software) edge node {} (Features);
+
+        % Feature Interactions
+        \path[->]<4-> node[proc, below of=Software,
+                      yshift=-1in, xshift=.75in, text width=12ex]
+                      (Interactions) {Modify \\ Program}
+        (Software) edge node {} (Interactions);
+
+        % Execution Environments
+        \path[->]<5-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=1.75in, text width=12ex]
+                      (Environment) {Operators}
+        (Software) edge node {} (Environment);
+
+        % Brooks Quotation
+        \path[->]<6-> node[specialOrange, above of=Software,
+                      yshift=.8in,text width=40ex]
+                      (Quotations)
+                      {``1600 Faults in 100 Projects: Automatically Finding Faults While Achieving High Coverage with
+                      EvoSuite'', {\em Empirical Software Engineering}};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+
+\end{frame}
+

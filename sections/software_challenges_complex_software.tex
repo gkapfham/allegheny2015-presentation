@@ -1,0 +1,72 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+  \frametitle{Software is Complex}
+  \framesubtitle{Even simple programs are intricate --- and difficult to test!}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=0cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,4.5) rectangle (10,-2);
+
+        % Computer Software
+        \path[->]<1-> node[proc, text width=14ex]
+        (Software) at (4,.8) {Computer Software};
+
+        % Code
+        \path[->]<2-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=-1.75in, text width=12ex]
+                      (Code) {Lines of Code}
+        (Software) edge node {} (Code);
+
+        % Features
+        \path[->]<3-> node[proc, below of=Software,
+                      yshift=-1in, xshift=-.75in, text width=12ex]
+                      (Features) {Numerous Features}
+        (Software) edge node {} (Features);
+
+        % Feature Interactions
+        \path[->]<4-> node[proc, below of=Software,
+                      yshift=-1in, xshift=.75in, text width=12ex]
+                      (Interactions) {Feature Interactions}
+        (Software) edge node {} (Interactions);
+
+        % Execution Environments
+        \path[->]<5-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=1.75in, text width=12ex]
+                      (Environment) {Runtime Environs}
+        (Software) edge node {} (Environment);
+
+        % Brooks Quotation
+        \path[->]<6-> node[specialOrange, above of=Software,
+                      yshift=.8in,text width=50ex]
+                      (Quotations)
+        {``Software entities are more complex for their size than
+        perhaps any other human construct'' --- Frederick P.\ Brooks, Jr.};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+
+\end{frame}
+

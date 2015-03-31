@@ -1,0 +1,57 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{The PIE Model}
+  \framesubtitle{There are necessary and sufficient conditions for fault detection}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[anchor=center] at (current page.center) {
+        \begin{beamercolorbox}[center]{title}
+          \vspace*{.75in}
+          \Large
+          \begin{center}
+
+            \only<1-3>{
+              \begin{itemize}
+                \item<1-> Execute the faulty source code
+                \item<2-> Infect the program's data state
+                \item<3-> Propagate to the program's output
+              \end{itemize}
+            }
+
+            \only<4->{
+              \begin{itemize}
+                \item {\color{solarizedYellow}E}xecute the faulty source code
+                \item {\color{solarizedYellow}I}nfect the program's data state
+                \item {\color{solarizedYellow}P}ropagate to the program's output
+              \end{itemize}
+            }
+
+            \only<1-4>{
+              \vspace*{.25in}
+              {\color{kapfhammerDarkGrey}{\em All} of these {\em must occur} before the fault manifests itself as a failure!}
+            }
+
+            \only<5->{
+              \vspace*{.25in}
+              {\color{solarizedOrange}{\em All} of these {\em must occur} before the fault manifests itself as a failure!}
+            }
+
+            \only<1-5>{
+              \vspace*{.25in}
+              {\color{kapfhammerDarkGrey}Using PIE, will the test cases {\em find} the defect in the program?}
+            }
+
+            \only<6->{
+              \vspace*{.25in}
+              {\color{solarizedOrange}Using the PIE model, will the test cases {\em find} the defect in the program?}
+            }
+
+          \end{center}
+          \normalsize
+      \end{beamercolorbox}};
+  \end{tikzpicture}
+
+\end{frame}

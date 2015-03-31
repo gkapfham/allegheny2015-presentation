@@ -1,0 +1,27 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[fragile]
+  \frametitle{\vspace*{.5in}A JUnit Test Case}
+  \framesubtitle{}
+
+  \normalsize
+  \hspace*{-.65in}
+  \begin{minipage}{5in}
+    \Large
+    \vspace*{-.25in}
+    \begin{minted}{java}
+
+    @Test
+    public void testOne() {
+        String expected = new String("Undefined");
+        String actual = Kinetic.
+                          computeVelocity(5,0);
+        assertEquals(expected, actual);
+    }
+
+    \end{minted}
+  \end{minipage}
+  \normalsize
+
+\end{frame}

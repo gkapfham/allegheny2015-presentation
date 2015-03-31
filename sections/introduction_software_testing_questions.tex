@@ -1,0 +1,24 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{Important Questions}
+  \framesubtitle{Not all tests have the same fault detection effectiveness!}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[anchor=center] at (current page.center) {
+        \begin{beamercolorbox}[center]{title}
+          \vspace*{.4in}
+          \fontsize{30}{40}\selectfont
+          \begin{center}
+            \only<1>{Will these test cases find the fault in the example program?}
+            \only<2>{$T_1$ assigns $K=5, m=0$ --- \\ Pass or fail?}
+            \only<3>{$T_2$ assigns $K=0, m=5$ --- \\ Pass or fail?}
+            \only<4>{How do we study the effectiveness of different test cases?}
+          \end{center}
+          \normalsize
+      \end{beamercolorbox}};
+  \end{tikzpicture}
+
+\end{frame}

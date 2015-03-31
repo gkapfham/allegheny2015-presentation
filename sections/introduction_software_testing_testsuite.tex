@@ -1,0 +1,110 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+
+  \frametitle{What is a Test Suite?}
+  \framesubtitle{A test suite is an organized collection of test cases}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=1cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,3.5) rectangle (10,-2);
+
+        %%%%% 1
+
+        % A Test Case
+        \path[->]<1-> node[proc, text width=4ex]
+        (One) at (-.8,.5) {$T_1$};
+
+        %%%%% 2
+
+        % A Test Case
+        \path[->]<2-> node[proc, right of=One,
+                      yshift=0in, xshift=.35in, text width=4ex]
+                      (Two) {$T_2$}
+        (One) edge node {} (Two);
+
+        %%%%% 3
+
+        % A Test Case
+        \path[->]<3-> node[proc, right of=Two,
+                      yshift=0in, xshift=.35in, text width=4ex]
+                      (Three) {$T_3$}
+        (Two) edge node {} (Three);
+
+        % A Test Case
+        \path[->]<4-> node[proc, right of=Three,
+                      yshift=0in, xshift=.35in, text width=4ex]
+                      (Four) {$T_4$}
+        (Three) edge node {} (Four);
+
+        %%%%% 4
+
+        % A Test Case Ellipse
+        \path[->]<5-> node[proc, right of=Four,
+                      yshift=0in, xshift=.35in, text width=4ex]
+                      (Dots) {$\ldots$}
+        (Four) edge node {} (Dots);
+
+        % A Test Case
+        \path[->]<6-> node[proc, right of=Dots,
+                      yshift=0in, xshift=.35in, text width=4ex]
+                      (Last) {$T_n$}
+        (Dots) edge node {} (Last);
+
+        %%%%% 5
+
+        % Organize into a test suite
+        \path[->]<7-> node[feature, above of=Three,
+                      yshift=.25in, xshift=.4in]
+                      (Organize)
+             {Organize the Test Cases into a Test Suite};
+
+        % Organize into a test suite
+        \path[->]<8-> node[feature, below of=Three,
+                      yshift=-.2in, xshift=.4in]
+                      (Support)
+             {Tool Support for Software Testing?};
+
+        % Tools ...
+        \path[->]<9-> node[feature, below of=Support,
+                      yshift=-.25in, xshift=-1.0in]
+                      (JUnit) {JUnit}
+        (Support) edge node {} (JUnit);
+
+        % Tools ...
+        \path[->]<10-> node[feature, below of=Support,
+                      yshift=-.25in, xshift=0in]
+                      (Ant) {Apache Ant}
+        (Support) edge node {} (Ant);
+
+        % Tools ...
+        \path[->]<11-> node[feature, below of=Support,
+                      yshift=-.25in, xshift=1.05in]
+                      (Eclipse) {Eclipse}
+        (Support) edge node {} (Eclipse);
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+\end{frame}

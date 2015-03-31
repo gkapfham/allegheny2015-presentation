@@ -1,0 +1,59 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[fragile]
+  \frametitle{\vspace*{.5in}A JUnit Test Case --- $T_3$}
+  \framesubtitle{}
+
+  \normalsize
+  \hspace*{-.65in}
+  \begin{minipage}{5in}
+    \Large
+    \vspace*{-.1in}
+    \begin{minted}{java}
+
+    @Test
+    public void testThree() {
+        String expected = new String("4");
+        String actual = Kinetic.
+                          computeVelocity(8,1);
+        assertEquals(expected, actual);
+    }
+
+    \end{minted}
+  \vspace*{.05in}
+  \end{minipage}
+  \normalsize
+  \HUGE
+
+  \only<1>{
+  \hspace*{1in}
+    \begin{minipage}{5in}
+      \begin{tabular}{c c c}
+      \begin{minipage}{.75in}E\end{minipage} &
+      \begin{minipage}{.75in}I\end{minipage} &
+      \begin{minipage}{.75in}P\end{minipage}\\
+      \begin{minipage}{.75in}\cmarkhide\end{minipage} &
+      \begin{minipage}{.75in}\cmarkhide\end{minipage} &
+      \begin{minipage}{.75in}\xmarkhide\end{minipage}
+\end{tabular}
+    \end{minipage}
+  }
+
+  \only<2>{
+  \hspace*{1in}
+    \begin{minipage}{5in}
+      \begin{tabular}{c c c}
+      \begin{minipage}{.75in}E\end{minipage} &
+      \begin{minipage}{.75in}I\end{minipage} &
+      \begin{minipage}{.75in}P\end{minipage}\\
+      \begin{minipage}{.75in}\cmark\end{minipage} &
+      \begin{minipage}{.75in}\cmark\end{minipage} &
+      \begin{minipage}{.75in}\xmark\end{minipage}
+      \end{tabular}
+    \end{minipage}
+  }
+
+  \normalsize
+
+\end{frame}

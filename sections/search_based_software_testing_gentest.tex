@@ -1,0 +1,35 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[fragile]
+  \frametitle{\vspace*{.5in}A Test from EvoSuite}
+  \framesubtitle{}
+
+  \normalsize
+  \hspace*{-.75in}
+  \begin{minipage}{5in}
+    \large
+    \vspace*{-.25in}
+    \begin{minted}{java}
+
+      @Test
+      public void test001() throws Throwable {
+        int int0 = 0;
+        String string0 = Kinetic.computeVelocity(int0, int0);
+        assertEquals("Undefined", string0);
+        assertNotNull(string0);
+        int int1 = 1262;
+        String string1 = Kinetic.computeVelocity(int0, int0);
+        int int2 = 5349;
+        String string2 = Kinetic.computeVelocity(int1, int2);
+        int int3 = 0;
+        int int4 = 3;
+        String string3 = Kinetic.computeVelocity(int3, int4);
+        Kinetic kinetic0 = new Kinetic();
+      }
+
+    \end{minted}
+  \end{minipage}
+  \normalsize
+
+\end{frame}

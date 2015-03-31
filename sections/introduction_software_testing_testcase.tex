@@ -1,0 +1,168 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}
+
+        \frametitle{What is a Test Case?}
+        \framesubtitle{A test case calls a method and checks its output with an oracle}
+
+        \hspace*{-.25in}
+        \begin{minipage}{5in}
+
+                \begin{center}
+                        \begin{minipage}{4.5in}
+
+                                \input{styles/kapfhammer-solarized-tikz-colors}
+
+                                \begin{figure}
+
+                                        \begin{center}
+
+                                                \begin{tikzpicture}[node distance=1.2cm, auto,>=stealth, thick,
+                                                  draw=solarizedBase1, text=solarizedBase03]
+
+                                                        \path[use as bounding box] (-2,3.5) rectangle (10,-2);
+
+                                                        %%%%% 1
+
+                                                        % The Method Under Test
+                                                        \path[->]<1-> node[proc, text width=14ex]
+                                                        (Method) at (1.5,.75) {Method Under Test};
+
+                                                        %%%%% 2
+
+                                                        % The Input to the Method
+                                                        \path[->]<2-3> node[io, left of=Method,
+                                                        yshift=0in, xshift=-.75in]
+                                                        (Input) {Input}
+                                                        (Input) edge node {} (Method);
+
+                                                        %%%%% 2
+
+                                                        % The Output of the Method
+                                                        \path[->]<3-3> node[io, right of=Method,
+                                                        yshift=0in, xshift=.75in]
+                                                        (Output) {Output}
+                                                        (Method) edge node {} (Output);
+
+                                                        %%%%% 4
+
+                                                        % The Test Set Up Method
+                                                        \path[->]<4-> node[proctest, above of=Method,
+                                                        yshift=.3in, xshift=0in, text width=12ex]
+                                                        (Setup) {Test \\ Set Up}
+                                                        (Setup) edge node {} (Method);
+
+                                                        %%%%% 5
+
+                                                        % The Input to the Method
+                                                        \path[->]<5-> node[io, left of=Method,
+                                                        yshift=0in, xshift=-.75in]
+                                                        (Input) {Input}
+                                                        (Input) edge node {} (Method);
+
+                                                        %%%%% 6
+
+                                                        % The Output of the Method
+                                                        \path[->]<6-> node[io, right of=Method,
+                                                        yshift=0in, xshift=.75in]
+                                                        (Output) {Output}
+                                                        (Method) edge node {} (Output);
+
+                                                        %%%%% 7
+
+                                                        % The Test Clean Up Method
+                                                        \path[->]<7-> node[proctest, below of=Method,
+                                                        yshift=-.3in, xshift=0in, text width=12ex]
+                                                        (Cleanup) {Test Clean Up}
+                                                        (Method) edge node {} (Cleanup);
+
+                                                        %%%%% 8
+
+                                                        % The Test Oracle
+                                                        \path[->]<8-> node[proctest, right of=Output,
+                                                        yshift=0in, xshift=.7in, text width=12ex]
+                                                        (Oracle) {Test \\ Oracle}
+                                                        (Output) edge node {} (Oracle);
+
+                                                        %%%%% 9
+
+                                                        % The Expected Output
+                                                        \path[->]<9-> node[io, above of=Oracle,
+                                                        yshift=.35in, xshift=0in, text width=7ex]
+                                                        (Expected) {\centering Expected \\ Output}
+                                                        (Expected) edge node {} (Oracle);
+
+                                                        %%%%% 10
+
+                                                        % The Verdict
+                                                        \path[->]<10-> node[special, below of=Oracle,
+                                                        yshift=-.35in, xshift=0in, text width=7ex]
+                                                        (Verdict) {\centering Test \\ Verdict}
+                                                        (Oracle) edge node {} (Verdict);
+
+                                                        %%%%% 11
+
+                                                        % The Expected Output
+                                                        \path[->]<11-12> node[iopass, above of=Oracle,
+                                                        yshift=.35in, xshift=0in, text width=7ex]
+                                                        (Expected) {\centering Expected \\ Output}
+                                                        (Expected) edge node {} (Oracle);
+
+                                                        % The Output of the Method
+                                                        \path[->]<11-12> node[iopass, right of=Method,
+                                                        yshift=0in, xshift=.75in]
+                                                        (Output) {Output}
+                                                        (Method) edge node {} (Output);
+
+                                                        % The Test Case Passes
+                                                        \path[->]<12-12> node[pass, below of=Oracle,
+                                                        yshift=-.35in, xshift=0in, text width=7ex]
+                                                        (Verdict) {\centering Test \\ Verdict}
+                                                        (Oracle) edge node {} (Verdict);
+
+                                                        % The Test Case Passes
+                                                        \path[->]<12-12> node[pass, below of=Output,
+                                                        yshift=-.9in, xshift=-.5in]
+                                                        (Comment)
+                                                        {The test case passes and the code is correct!};
+
+                                                        %%%%% 12
+
+                                                        % The Expected Output
+                                                        \path[->]<13-14> node[wrongoutput, above of=Oracle,
+                                                        yshift=.35in, xshift=0in, text width=7ex]
+                                                        (Expected) {\centering Expected \\ Output}
+                                                        (Expected) edge node {} (Oracle);
+
+                                                        % The Output of the Method
+                                                        \path[->]<13-14> node[iofailother, right of=Method,
+                                                        yshift=0in, xshift=.75in]
+                                                        (Output) {Output}
+                                                        (Method) edge node {} (Output);
+
+                                                        % The Test Case Passes
+                                                        \path[->]<14-14> node[fail, below of=Oracle,
+                                                        yshift=-.35in, xshift=0in, text width=7ex]
+                                                        (Verdict) {\centering Test \\ Verdict}
+                                                        (Oracle) edge node {} (Verdict);
+
+                                                        % The Test Case Passes
+                                                        \path[->]<14-14> node[fail, below of=Output,
+                                                        yshift=-.9in, xshift=-.5in]
+                                                        (Comment)
+                                                        {The test case fails and a defect is found!};
+
+                                                \end{tikzpicture}
+
+                                        \end{center}
+
+                                \end{figure}
+
+                        \end{minipage}
+
+                \end{center}
+        \end{minipage}
+
+
+\end{frame}

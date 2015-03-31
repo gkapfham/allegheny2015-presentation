@@ -1,0 +1,31 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[fragile]
+  \frametitle{\vspace*{.3in}Computing Velocity}
+  % \framesubtitle{The computation of an object's velocity presents challenges!}
+  \framesubtitle{}
+
+  \normalsize
+  \hspace*{-.65in}
+  % \vspace*{-.2in}
+  \begin{minipage}{5in}
+  \begin{minted}{java}
+    public static String computeVelocity(int kinetic, int mass) {
+      int velocitySquared = 0;
+      int velocity = 0;
+      StringBuffer finalVelocity = new StringBuffer();
+      if( mass != 0 ) {
+        velocitySquared = 3 * (kinetic / mass);
+        velocity = (int)Math.sqrt(velocitySquared);
+        finalVelocity.append(velocity);
+      }
+      else {
+        finalVelocity.append("Undefined");
+      }
+      return finalVelocity.toString();
+    }
+  \end{minted}
+\end{minipage}
+  \normalsize
+\end{frame}

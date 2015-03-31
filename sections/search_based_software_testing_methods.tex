@@ -1,0 +1,73 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+  \frametitle{Configuring EvoSuite}
+  \framesubtitle{This tool has many unique configurations --- which are best?}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+  \vspace*{.1in}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=0cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,4.5) rectangle (10,-2);
+
+        % Computer Software
+        \path[->]<1-> node[proc, text width=14ex]
+        (Software) at (4,.8) {EvoSuite's Configurations};
+
+        % Code
+        \path[->]<2-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=-1.75in, text width=12ex]
+                      (Code) {Random}
+        (Software) edge node {} (Code);
+
+        % Features
+        \path[->]<3-> node[proc, below of=Software,
+                      yshift=-1in, xshift=-.75in, text width=14ex]
+                      (Features) {Fixed-Random}
+        (Software) edge node {} (Features);
+
+        % Feature Interactions
+        \path[->]<4-> node[proc, below of=Software,
+                      yshift=-1in, xshift=.75in, text width=12ex]
+                      (Interactions) {Genetic}
+        (Software) edge node {} (Interactions);
+
+        % Execution Environments
+        \path[->]<5-> node[proc, right of=Software,
+                      yshift=-.5in, xshift=1.75in, text width=12ex]
+                      (Environment) {Regression}
+        (Software) edge node {} (Environment);
+
+        % Brooks Quotation
+        \path[->]<6-> node[specialOrange, above of=Software,
+                      yshift=.8in,text width=40ex]
+                      (Quotations)
+                      {The fitness function computes {\em branch coverage}, {\em weak mutation score}, or {\em strong
+                      mutation score} to guide the search to the ``best'' test cases};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+
+\end{frame}
+

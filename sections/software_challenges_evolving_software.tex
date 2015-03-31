@@ -1,0 +1,100 @@
+%!TEX root=kapfhammer_gcc_presentation.tex
+% mainfile: ../kapfhammer_gcc_presentation.tex
+
+\begin{frame}[t]
+  \frametitle{Software is Evolving}
+  \framesubtitle{Software is continuously updated --- making testing critical!}
+
+  \hspace*{-.5in}
+  \begin{minipage}{5in}
+  \begin{center}
+
+    \begin{minipage}{4.5in}
+
+    \input{styles/kapfhammer-solarized-tikz-colors}
+
+    \begin{figure}
+
+    \begin{center}
+
+      \begin{tikzpicture}[node distance=1cm, auto,>=stealth, thick]
+
+        \path[use as bounding box] (-2,3.5) rectangle (10,-2);
+
+        %%%%% 1
+
+        % Original program and original execution environment
+        \path[->]<1-> node[proc, text width=14ex]
+        (Environment) at (1.5,.75) {Execution Environment};
+
+        \path[->]<1-> node[prochighlight, above of=Environment,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (Program) {Program};
+
+        %%%%% 2
+
+        % Changed program and original execution environment
+        \path[->]<2-3> node[proc, text width=14ex]
+        (Environment) at (6.25,.75) {Execution Environment};
+
+        \path[->]<2-3> node[prochighlightchanged, above of=Environment,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramChanged) {Program};
+
+        %%%%% 3
+
+        % Add in a description: program just changed!
+
+        \path[->]<3-3> node[special, text width=50ex]
+        (ProgramChanged) at (4,-1.25)
+     {{\bf Program Changed} because of the addition of a new feature or the correction of a defect};
+
+        %%%%% 4
+
+        % Original program and original execution environment
+        \path[->]<4-> node[proc, text width=14ex]
+        (Environment) at (1.5,.75) {Execution Environment};
+
+        \path[->]<4-> node[prochighlight, above of=Environment,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (Program) {Program};
+
+        %%%%% 5
+
+        % Original program and changed execution environment
+        \path[->]<5-7> node[prochighlightchanged, text width=14ex]
+        (Environment) at (6.25,.75) {Execution Environment};
+
+        \path[->]<5-7> node[prochighlight, above of=Environment,
+                      yshift=.1in, xshift=0cm, text width=12ex]
+                      (ProgramChanged) {Program};
+
+        %%%%% 6
+
+        % Add in a description: environment just changed!
+
+        \path[->]<6-7> node[special, text width=50ex]
+        (ProgramChangedComment) at (4,-1.2)
+     {{\bf Execution Environment Changed} due to an upgrade in a kernel, device driver, or virtual machine};
+
+        %%%%% 6
+
+        % Add in a final comment to balance out this slide
+
+        \path[->]<7-7> node[special, below of=ProgramChangedComment, text width=40ex, yshift=-.2in]
+        (ProgramChanged)
+        {{\bf ``Release early, release often''} means that programs are regularly updated};
+
+        \end{tikzpicture}
+
+        \end{center}
+
+        \end{figure}
+
+      \end{minipage}
+
+  \end{center}
+  \end{minipage}
+
+
+\end{frame}
