@@ -84,7 +84,7 @@
 
     <!-- RUNNING TASK - "ant kinetic" -->
     <target name="kinetic">
-        <java fork="true" classname="edu.gcc.physics.Kinetic" maxmemory="1024m">
+        <java fork="true" classname="edu.allegheny.physics.Kinetic" maxmemory="1024m">
             <classpath refid="run.classpath" />
             <arg value="" />
         </java>
@@ -93,7 +93,7 @@
     <!-- RUNNING TASK - "ant test" -->
     <target name="test" depends="compile">
         <junit fork="yes">
-            <test name="edu.gcc.physics.AllTests" />
+            <test name="edu.allegheny.physics.AllTests" />
             <classpath refid="run.classpath.logging" />
             <formatter type="brief" usefile="false" />
         </junit>
@@ -102,7 +102,7 @@
     <!-- RUNNING TASK - "ant test" -->
     <target name="gentest" depends="compile">
         <junit fork="yes">
-            <test name="edu.gcc.physics.Kinetic_ESTest" />
+            <test name="edu.allegheny.physics.Kinetic_ESTest" />
             <classpath refid="run.classpath.logging" />
             <formatter type="brief" usefile="false" />
         </junit>
@@ -116,7 +116,7 @@
             <attribute name="Implementation-Title" value="Kinetc"/>
             <attribute name="Implementation-Version" value="${version}"/> 
             <attribute name="Implementation-Vendor" value="Gregory M. Kapfhammer"/>
-            <attribute name="Main-Class" value="edu.gcc.physics.Kinetic"/>
+            <attribute name="Main-Class" value="edu.allegheny.physics.Kinetic"/>
         </manifest>
         <jar destfile="${dist.dir}/${dist.name}.jar" manifest="${dist.dir}/MANIFEST.MF" basedir="${build.dir}">
         <fileset dir="${config.logging.dir}" includes="**/*.properties"/>
@@ -127,7 +127,7 @@
     <target name="coveragetest" depends="compile">
         <jacoco:coverage destfile="${result.exec.file}">
             <junit fork="yes" forkmode="once">
-                <test name="edu.gcc.physics.AllTests" />
+                <test name="edu.allegheny.physics.AllTests" />
                 <classpath refid="run.classpath" />
                 <formatter type="brief" usefile="false" />
             </junit>
