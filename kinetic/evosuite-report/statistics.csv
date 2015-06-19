@@ -1,0 +1,14 @@
+TARGET_CLASS,criterion,Coverage,Total_Goals,Covered_Goals
+edu.gcc.physics.Kinetic,BRANCH,1.0,3,3
+edu.gcc.physics.Kinetic,BRANCH,0.8703703703703703,54,41
+edu.gcc.physics.Kinetic,BRANCH,1.0,54,54
+edu.gcc.physics.Kinetic,BRANCH,0.0,54,43
+edu.gcc.physics.Kinetic,BRANCH,1.0,3,3
+edu.gcc.physics.Kinetic,BRANCH,1.0,3,3
+edu.gcc.physics.Kinetic,BRANCH,1.0,3,3
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
+edu.allegheny.physics.Kinetic,BRANCH,1.0,54,54
