@@ -3,7 +3,7 @@
 This repository contains the LaTeX source code and additional resources for a presentation that I, [Gregory M.
 Kapfhammer](http://www.cs.allegheny.edu/sites/gkapfham), gave during an event at Allegheny College during the Spring
 2015 academic semester. The presentation's source code uses a wide variety of LaTeX packages, such as `beamer` and
-`minted`, in order to control each slide.  I have developed a custom theme for the display of the slides and the use of
+`minted`, in order to create each slide.  I have developed a custom theme for the display of the slides and the use of
 full-screen photographs on the backgrounds.
 
 You are welcome to use these slides as inspiration for your own presentation. If you find this example useful, could I
