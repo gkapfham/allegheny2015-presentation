@@ -21,8 +21,8 @@ Then, if you want to compile the presentation to a PDF, you should type the foll
 
 ```shell
 cd allegheny2015-presentation
-pdflatex allegheny2015-presentation.tex
-pdflatex allegheny2015-presentation.tex
+pdflatex -shell-escape allegheny2015-presentation.tex
+pdflatex -shell-escape allegheny2015-presentation.tex
 ```
 
 Please note that this has been tested on an Ubuntu 15.04 workstation running a very recent version of LaTeX that was
